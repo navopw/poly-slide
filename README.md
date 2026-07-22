@@ -1,9 +1,9 @@
-# PolySlide
+# poly-slide
 
 ### Debug
 ```
 npm install http-server -g
-http-server PolySlide/
+http-server poly-slide/
 ```
 
 Now visit http://localhost:8080 and use the chrome dev tools to get the smartphone preview
