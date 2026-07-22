@@ -6,13 +6,13 @@ PolySlide.Entities.Player = ds.class({
 		//Shield
 		this.shield_sprite = game.add.sprite(x, y, "player_shield");
 		this.shield_sprite.anchor.set(0.5);
-		this.shield_sprite.scale.set(window.devicePixelRatio / 3, window.devicePixelRatio / 3);
+		this.shield_sprite.scale.set(PolySlide.assetScale(3), PolySlide.assetScale(3));
 		this.shield_sprite.kill();
 
 		//Sprite
 		this.sprite = game.add.sprite(x, y, "player");
 		this.sprite.anchor.set(0.5);
-		this.sprite.scale.set(window.devicePixelRatio / 3, window.devicePixelRatio / 3);
+		this.sprite.scale.set(PolySlide.assetScale(3), PolySlide.assetScale(3));
 	},
 
 	initializePhysics: function() {

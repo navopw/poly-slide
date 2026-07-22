@@ -11,7 +11,7 @@ PolySlide.Items.Shield = ds.static.class({
 		var sprite = game.add.sprite(x, y, this.texture_name);
 		sprite.name = this.name
 		sprite.anchor.set(0.5, 0.5);
-		sprite.scale.setTo(window.devicePixelRatio / 3, window.devicePixelRatio / 3);
+		sprite.scale.setTo(PolySlide.assetScale(3), PolySlide.assetScale(3));
 		return sprite;
 	},
 

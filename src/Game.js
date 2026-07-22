@@ -63,7 +63,7 @@ PolySlide.States.Game = ds.class({
 		//Background
 		this.game.stage.backgroundColor = "#242424";
 		this.background = this.game.add.tileSprite(0, 0, this.world.width * 3, this.world.height * 3, "background");
-		this.background.scale.set(window.devicePixelRatio / 3, window.devicePixelRatio / 3);
+		this.background.scale.set(PolySlide.assetScale(3), PolySlide.assetScale(3));
 
 		//Group
 		this.enemy_group = this.game.add.group();
@@ -235,7 +235,7 @@ PolySlide.States.Game = ds.class({
 
 		var enemy_information = this.enemy_information[enemy_type];
 		var enemy = this.game.add.sprite(this.game.rnd.frac() * this.world.width, -5, enemy_information.texture_name);
-		enemy.scale.setTo(window.devicePixelRatio / 3, window.devicePixelRatio / 3);
+		enemy.scale.setTo(PolySlide.assetScale(3), PolySlide.assetScale(3));
 		enemy.anchor.set(0.5, 0.5);
 		enemy.rotation_speed = (this.game.rnd.frac() > 0.5 ? enemy_information.rotation_speed : -enemy_information.rotation_speed);
 		this.enemy_group.add(enemy);

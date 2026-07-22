@@ -10,7 +10,7 @@ PolySlide.States.Preloader = ds.class({
 
 		//Kncw Logo
 		this.kncw_logo = this.add.sprite(this.world.centerX, this.world.centerY, "kncw_logo");
-		this.kncw_logo.scale.setTo(window.devicePixelRatio / 3, window.devicePixelRatio / 3);
+		this.kncw_logo.scale.setTo(PolySlide.assetScale(3), PolySlide.assetScale(3));
 		this.kncw_logo.anchor.setTo(0.5);
 		this.game.add.tween(this.kncw_logo).to({ alpha: 1 }, 750, "Linear", true);
 		this.start_time = Date.now();

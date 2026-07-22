@@ -13,9 +13,17 @@
         <title>poly-slide</title>
 
         <style>
-            html, body {
-                margin: 0px;
+            html, body, #game {
+                width: 100%;
+                height: 100%;
+                margin: 0;
                 overflow: hidden;
+                background: #000;
+            }
+
+            #game canvas {
+                display: block;
+                margin: 0 auto;
             }
 
             @font-face {
@@ -68,12 +76,24 @@
         <script type="text/javascript" src="src/Game.js"></script>
         
         <script type="text/javascript" charset="utf-8">
-            var game = new Phaser.Game(
-				window.screen.availWidth * window.devicePixelRatio, 
-				window.screen.availHeight * window.devicePixelRatio,
-				Phaser.AUTO, 
-				"game"
-			);
+            // Assets were authored for ~3x mobile. Keep a usable scale on desktop too.
+            PolySlide.pixelRatio = Math.max(window.devicePixelRatio || 1, 2);
+            PolySlide.assetScale = function (divisor) {
+                return PolySlide.pixelRatio / divisor;
+            };
+
+            var width = Math.max(320, window.innerWidth || document.documentElement.clientWidth);
+            var height = Math.max(480, window.innerHeight || document.documentElement.clientHeight);
+
+            // Cap world size so SHOW_ALL stays sharp without huge canvases
+            var maxEdge = 1280;
+            if (width > maxEdge || height > maxEdge) {
+                var fit = maxEdge / Math.max(width, height);
+                width = Math.round(width * fit);
+                height = Math.round(height * fit);
+            }
+
+            var game = new Phaser.Game(width, height, Phaser.CANVAS, "game");
 
 			game.state.add("Boot", PolySlide.States.Boot);
 			game.state.add("Preloader", PolySlide.States.Preloader);
